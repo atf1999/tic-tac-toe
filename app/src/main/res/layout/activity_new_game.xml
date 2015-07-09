@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.atf.tic.NewGameActivity"
+    android:background="#ff0000">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_marginTop="38dp"
+        android:hint="@string/hintName"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p1"
+        android:layout_marginTop="38dp"
+        android:hint="@string/hintP1"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2"
+        android:hint="@string/hintP2"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/p1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/round"
+        android:hint="@string/hintLimit"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/p2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="@string/start"
+        android:id="@+id/bStart"
+        android:layout_below="@+id/round"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="67dp"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+</RelativeLayout>
