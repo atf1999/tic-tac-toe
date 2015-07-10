@@ -1,38 +1,58 @@
 package com.atf.tic;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+import database.TTT;
 
 
-public class NewGameActivity extends ActionBarActivity {
-
+public class NewGameActivity extends Activity {
+    //Text fields
+    EditText name, p1, p2, sR, rounds;
+    //Strings to submit
+    String sName, sP1, sP2, ssR, sRounds;
+    //Holds Game
+    TTT game;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
+
+    }
+    public void create(View view){
+        //Intialize the fields
+        name = (EditText)findViewById(R.id.name);
+        p1 = (EditText)findViewById(R.id.p1);
+        p2 = (EditText)findViewById(R.id.p2);
+        sR = (EditText)findViewById(R.id.sRound);
+        rounds = (EditText)findViewById(R.id.round);
+        new AlertDialog.Builder(this)
+                .setTitle("Create new game?")
+                .setMessage("Are you sure you want to create this game? Once created, you cannot edit it")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sName = name.getText().toString();
+                        sP1 = p1.getText().toString();
+                        sP2 = p2.getText().toString();
+                        ssR = sR.getText().toString();
+                        sRounds = rounds.getText().toString();
+                        game = new TTT(sName, sP1, sP2, Integer.parseInt(sRounds), Integer.parseInt(ssR), new String[]{"","","","","","","","",""});
+                        //DatabaseHandler.getIntstance(this).add(game);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .create()
+                .show();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_new_game, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

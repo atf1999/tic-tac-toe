@@ -10,7 +10,8 @@ import android.view.View;
 
 
 public class MainActivity extends Activity {
-
+    //Intent for switching
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,11 @@ public class MainActivity extends Activity {
     }
 
    public void newGame(View view){
-       Intent intent = new Intent();
+       intent = new Intent(this, NewGameActivity.class);
+       startActivity(intent);
+   }
+   public void openGame(View view){
+       intent = new Intent(this, OpenGameActivity.class);
+       startActivity(intent);
    }
 }

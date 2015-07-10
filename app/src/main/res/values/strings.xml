@@ -11,5 +11,8 @@
     <string name="hintP1">Player 1 name</string>
     <string name="hintP2">Player 2 name</string>
     <string name="hintLimit">Number of rounds</string>
+    <string name="hintStart">Starting Round</string>
     <string name="start">Start Game</string>
+    <string name="title_activity_open_game">OpenGameActivity</string>
+    <string name="open">Choose a game to continue</string>
 </resources>
