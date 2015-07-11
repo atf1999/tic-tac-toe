@@ -3,11 +3,14 @@ package com.atf.tic;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import database.DatabaseHandler;
 import database.TTT;
+import de.greenrobot.event.EventBus;
 
 
 public class NewGameActivity extends Activity {
@@ -42,7 +45,10 @@ public class NewGameActivity extends Activity {
                         ssR = sR.getText().toString();
                         sRounds = rounds.getText().toString();
                         game = new TTT(sName, sP1, sP2, Integer.parseInt(sRounds), Integer.parseInt(ssR), new String[]{"","","","","","","","",""});
-                        //DatabaseHandler.getIntstance(this).add(game);
+                        EventBus.getDefault().postSticky(game);
+                        DatabaseHandler.getInstance(getApplicationContext()).add(game);
+                        Intent tic = new Intent(getApplicationContext(), TicTacToeActivity.class);
+                        startActivity(tic);
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

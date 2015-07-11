@@ -24,6 +24,10 @@
             android:name=".OpenGameActivity"
             android:label="@string/title_activity_open_game" >
         </activity>
+        <activity
+            android:name=".TicTacToeActivity"
+            android:label="@string/title_activity_tic_tac_toe" >
+        </activity>
     </application>
 
 </manifest>
