@@ -8,7 +8,6 @@ public class TTT {
     private String name = "",
                    p1 = "",
                    p2 = "";
-    private int MAX_ROUNDS = 0, sround = 0;
     private String[] tiles = new String[9];
     public TTT(){}
 
@@ -17,31 +16,23 @@ public class TTT {
      * @param name - name of the game
      * @param p1 - p1 name
      * @param p2 - p2 name
-     * @param rounds - round limit
-     * @param sround - starting round
      */
-    public TTT(String name, String p1, String p2, int rounds, int sround){
+    public TTT(String name, String p1, String p2){
         this.name = name;
         this.p1 = p1;
         this.p2 = p2;
-        this.MAX_ROUNDS = rounds;
-        this.sround = sround;
     }
     /**
      * Builds the object with basic params
      * @param name - name of the game
      * @param p1 - p1 name
      * @param p2 - p2 name
-     * @param rounds - round limit
-     * @param sround - starting round
      * @param tiles - the tiles on the board
      */
-    public TTT(String name, String p1, String p2, int rounds, int sround, String[] tiles){
+    public TTT(String name, String p1, String p2, String[] tiles){
         this.name = name;
         this.p1 = p1;
         this.p2 = p2;
-        this.MAX_ROUNDS = rounds;
-        this.sround = sround;
         this.tiles = tiles;
     }
     public void addTiles(String[] add){
@@ -55,12 +46,6 @@ public class TTT {
     }
     public String getP2(){
         return p2;
-    }
-    public int getRounds(){
-        return MAX_ROUNDS;
-    }
-    public int getSround(){
-        return sround;
     }
     public String[] getTiles(){
         return tiles;

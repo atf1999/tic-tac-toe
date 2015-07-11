@@ -15,8 +15,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String KEY_NAME = "Name",
                                KEY_P1 = "Player_one",
                                KEY_P2 = "Player_two",
-                               KEY_MAX = "Max_rounds",
-                               KEY_SR = "Start_rounds",
                                KEY_TILES = "Tiles";
     private static final int DB_VERSION = 1;
     private static DatabaseHandler sInstance;
@@ -41,8 +39,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                    + KEY_NAME + " TEXT,"
                    + KEY_P1 + " TEXT,"
                    + KEY_P2 + " TEXT,"
-                   + KEY_MAX + " INTEGER,"
-                   + KEY_SR + " INTEGER,"
                    + KEY_TILES + " TEXT,"
                    + ")");
 
@@ -57,7 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * Converts array to string seperated by comma
-     * @return
+     * @return string of tiles
      */
     private String getTiles(TTT game){
         StringBuilder builder = new StringBuilder();
@@ -75,8 +71,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         vals.put(KEY_NAME, game.getName());
         vals.put(KEY_P1, game.getP1());
         vals.put(KEY_P2, game.getP2());
-        vals.put(KEY_MAX, game.getRounds());
-        vals.put(KEY_SR, game.getSround());
         vals.put(KEY_TILES, getTiles(game));
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(DB_TABLE, null, vals);

@@ -12,22 +12,138 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="@string/game"
         android:id="@+id/game_name"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
-        android:gravity="fill_horizontal" />
+        android:gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView3"
+        android:text="@string/player"
+        android:id="@+id/player_title"
         android:textColor="#ffffff"
-        android:gravity="fill_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="38dp"
         android:layout_below="@+id/game_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/reset"
+        android:id="@+id/reset"
+        android:textSize="30dp"
+        android:layout_marginTop="43dp"
+        android:layout_below="@+id/player_title"
+        android:layout_alignRight="@+id/nPlayer"
+        android:layout_alignEnd="@+id/nPlayer"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="1"
+        android:id="@+id/tile_one"
+        android:textSize="30dp"
+        android:layout_below="@+id/reset"
+        android:layout_toLeftOf="@+id/game_name"
+        android:layout_toStartOf="@+id/game_name" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="2"
+        android:id="@+id/tile_two"
+        android:layout_alignTop="@+id/tile_one"
+        android:layout_alignLeft="@+id/player_title"
+        android:layout_alignStart="@+id/player_title"
+        android:layout_marginRight="20dp"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="3"
+        android:id="@+id/tile_three"
+        android:layout_alignTop="@+id/tile_two"
+        android:layout_toRightOf="@+id/tile_two"
+        android:layout_toEndOf="@+id/tile_two"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="4"
+        android:id="@+id/tile_four"
+        android:textSize="30dp"
+        android:layout_below="@+id/tile_one"
+        android:layout_alignLeft="@+id/tile_one"
+        android:layout_alignStart="@+id/tile_one" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="5"
+        android:id="@+id/tile_five"
+        android:textSize="30dp"
+        android:layout_below="@+id/tile_two"
+        android:layout_alignLeft="@+id/tile_two"
+        android:layout_alignStart="@+id/tile_two" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="6"
+        android:id="@+id/tile_six"
+        android:textSize="30dp"
+        android:layout_below="@+id/tile_three"
+        android:layout_toRightOf="@+id/tile_two"
+        android:layout_toEndOf="@+id/tile_two" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="7"
+        android:id="@+id/tile_seven"
+        android:textSize="30dp"
+        android:layout_below="@+id/tile_four"
+        android:layout_alignLeft="@+id/tile_four"
+        android:layout_alignStart="@+id/tile_four" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="8"
+        android:id="@+id/tile_eight"
+        android:textSize="30dp"
+        android:layout_below="@+id/tile_five"
+        android:layout_alignLeft="@+id/tile_five"
+        android:layout_alignStart="@+id/tile_five" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="9"
+        android:id="@+id/tile_nine"
+        android:textSize="30dp"
+        android:layout_alignBottom="@+id/tile_eight"
+        android:layout_alignLeft="@+id/tile_six"
+        android:layout_alignStart="@+id/tile_six" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:text="@string/nPlayer"
+        android:id="@+id/nPlayer"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tile_nine"
+        android:layout_alignEnd="@+id/tile_nine" />
+
 </RelativeLayout>

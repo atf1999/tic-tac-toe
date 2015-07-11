@@ -18,4 +18,8 @@
     <string name="title_activity_tic_tac_toe">TicTacToeActivity</string>
     <string name="game">Game Title</string>
     <string name="num_rounds">Number of rounds</string>
+    <string name="player">Player: </string>
+    <string name="nPlayer">Next Player</string>
+    <string name="nRound">Next Round</string>
+    <string name="reset">Reset</string>
 </resources>

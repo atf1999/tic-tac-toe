@@ -31,31 +31,21 @@ public class NewGameActivity extends Activity {
         name = (EditText)findViewById(R.id.name);
         p1 = (EditText)findViewById(R.id.p1);
         p2 = (EditText)findViewById(R.id.p2);
-        sR = (EditText)findViewById(R.id.sRound);
-        rounds = (EditText)findViewById(R.id.round);
         new AlertDialog.Builder(this)
                 .setTitle("Create new game?")
                 .setMessage("Are you sure you want to create this game? Once created, you cannot edit it")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        sName = name.getText().toString();
-                        sP1 = p1.getText().toString();
-                        sP2 = p2.getText().toString();
-                        ssR = sR.getText().toString();
-                        sRounds = rounds.getText().toString();
-                        game = new TTT(sName, sP1, sP2, Integer.parseInt(sRounds), Integer.parseInt(ssR), new String[]{"","","","","","","","",""});
-                        EventBus.getDefault().postSticky(game);
-                        DatabaseHandler.getInstance(getApplicationContext()).add(game);
-                        Intent tic = new Intent(getApplicationContext(), TicTacToeActivity.class);
-                        startActivity(tic);
-                    }
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    sName = name.getText().toString();
+                    sP1 = p1.getText().toString();
+                    sP2 = p2.getText().toString();
+                    game = new TTT(sName, sP1, sP2, new String[]{"","","","","","","","",""});
+                    EventBus.getDefault().postSticky(game);
+                    DatabaseHandler.getInstance(getApplicationContext()).add(game);
+                    Intent tic = new Intent(getApplicationContext(), TicTacToeActivity.class);
+                    startActivity(tic);
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                .setNegativeButton("No", (dialog, which) -> {
 
-                    }
                 })
                 .create()
                 .show();
