@@ -42,7 +42,8 @@
         android:layout_below="@+id/player_title"
         android:layout_alignRight="@+id/nPlayer"
         android:layout_alignEnd="@+id/nPlayer"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:onClick="reset" />
 
     <Button
         android:layout_width="80dp"
@@ -52,7 +53,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/reset"
         android:layout_toLeftOf="@+id/game_name"
-        android:layout_toStartOf="@+id/game_name" />
+        android:layout_toStartOf="@+id/game_name"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -63,7 +65,8 @@
         android:layout_alignLeft="@+id/player_title"
         android:layout_alignStart="@+id/player_title"
         android:layout_marginRight="20dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -73,7 +76,8 @@
         android:layout_alignTop="@+id/tile_two"
         android:layout_toRightOf="@+id/tile_two"
         android:layout_toEndOf="@+id/tile_two"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -83,7 +87,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/tile_one"
         android:layout_alignLeft="@+id/tile_one"
-        android:layout_alignStart="@+id/tile_one" />
+        android:layout_alignStart="@+id/tile_one"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -93,7 +98,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/tile_two"
         android:layout_alignLeft="@+id/tile_two"
-        android:layout_alignStart="@+id/tile_two" />
+        android:layout_alignStart="@+id/tile_two"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -103,7 +109,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/tile_three"
         android:layout_toRightOf="@+id/tile_two"
-        android:layout_toEndOf="@+id/tile_two" />
+        android:layout_toEndOf="@+id/tile_two"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -113,7 +120,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/tile_four"
         android:layout_alignLeft="@+id/tile_four"
-        android:layout_alignStart="@+id/tile_four" />
+        android:layout_alignStart="@+id/tile_four"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -123,7 +131,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/tile_five"
         android:layout_alignLeft="@+id/tile_five"
-        android:layout_alignStart="@+id/tile_five" />
+        android:layout_alignStart="@+id/tile_five"
+        android:onClick="tictactoe" />
 
     <Button
         android:layout_width="80dp"
@@ -133,17 +142,19 @@
         android:textSize="30dp"
         android:layout_alignBottom="@+id/tile_eight"
         android:layout_alignLeft="@+id/tile_six"
-        android:layout_alignStart="@+id/tile_six" />
+        android:layout_alignStart="@+id/tile_six"
+        android:onClick="tictactoe" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="280dp"
         android:layout_height="60dp"
-        android:text="@string/nPlayer"
+        android:text="@string/tie"
         android:id="@+id/nPlayer"
         android:textSize="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/tile_nine"
-        android:layout_alignEnd="@+id/tile_nine" />
+        android:layout_alignEnd="@+id/tile_nine"
+        android:onClick="tie" />
 
 </RelativeLayout>

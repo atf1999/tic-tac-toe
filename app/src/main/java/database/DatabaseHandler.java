@@ -2,8 +2,11 @@ package database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by tom on 7/10/15.
@@ -36,11 +39,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Creats Db
         db.execSQL("CREATE TABLE " + DB_TABLE + "("
-                   + KEY_NAME + " TEXT,"
-                   + KEY_P1 + " TEXT,"
-                   + KEY_P2 + " TEXT,"
-                   + KEY_TILES + " TEXT,"
-                   + ")");
+                + KEY_NAME + " TEXT,"
+                + KEY_P1 + " TEXT,"
+                + KEY_P2 + " TEXT,"
+                + KEY_TILES + " TEXT,"
+                + ")");
 
     }
 
@@ -74,5 +77,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         vals.put(KEY_TILES, getTiles(game));
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(DB_TABLE, null, vals);
+    }
+    public void update(TTT game){
+        ContentValues val = new ContentValues();
+        //Intialize db
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE " + DB_TABLE + " SET " + KEY_TILES + " = " + getTiles(game) + " WHERE " + KEY_NAME + " = " + game.getName());
+    }
+
+    /**
+     * Gets all matches
+     * @return list of matches
+     */
+    public ArrayList<String> getMatches(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> list = new ArrayList<String>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DB_TABLE, null);
+        if(cursor.moveToFirst()){
+            do{
+                list.add(cursor.getString(cursor.getColumnIndex(KEY_NAME)));
+            }while (cursor.moveToNext());
+        }
+        return list;
+    }
+    public TTT getGame(String name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DB_TABLE + " WHERE " + KEY_NAME + " = " + name, null);
+        TTT game = new TTT();
+        if(cursor.moveToFirst()){
+            do{
+               TTT ng = new TTT(cursor.getString(cursor.getColumnIndex(KEY_NAME)), cursor.getString(cursor.getColumnIndex(KEY_P1)), cursor.getString(cursor.getColumnIndex(KEY_P2)), cursor.getString(cursor.getColumnIndex(KEY_TILES)).split(","));
+               game = ng;
+               break;
+            }while (cursor.moveToNext());
+        }
+        return game;
     }
 }
